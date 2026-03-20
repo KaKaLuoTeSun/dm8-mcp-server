@@ -10,6 +10,10 @@
 | `listTables` | 列出指定 Schema 下的所有表名 |
 | `describeTable` | 查询指定表的列信息（列名、类型、长度、是否可空、注释） |
 | `getTableDdl` | 获取指定表的 DDL 建表语句 |
+| `listTableIndexes` | 查询指定表的索引信息（索引名、是否唯一、索引类型、索引列） |
+| `listTableConstraints` | 查询指定表的约束信息（主键/唯一键/外键/检查约束） |
+| `listViews` | 列出指定 Schema 下的所有视图及其定义 |
+| `executeQuery` | 执行只读 SELECT 查询（禁止任何写操作） |
 
 ## 环境要求
 
@@ -84,6 +88,10 @@ mvn clean package -DskipTests
 - "查看 DMHR 下有哪些表"
 - "描述一下 DMHR.CITY 表的结构"
 - "获取 DMHR.CITY 表的 DDL"
+- "查看 DMHR.DEPARTMENT 表有哪些索引"
+- "查看 DMHR.EMPLOYEE 表的约束信息"
+- "列出 DMHR 下所有视图"
+- "执行 SELECT * FROM DMHR.CITY WHERE ROWNUM <= 10"
 
 ## 技术栈
 
