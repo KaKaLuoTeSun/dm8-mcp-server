@@ -19,7 +19,7 @@ public class Dm8Tools {
         this.queryService = queryService;
     }
 
-    @Tool(description = "List all user-defined schemas in the DM8 database")
+    @Tool(name = "listSchemas", description = "列出达梦数据库（DM8）中所有的 Schema")
     public Map<String, Object> listSchemas() {
         try {
             List<String> schemas = queryService.listSchemas();
@@ -31,9 +31,9 @@ public class Dm8Tools {
         }
     }
 
-    @Tool(description = "List all table names in the specified DM8 schema. schemaName is case-insensitive.")
+    @Tool(name = "listTables", description = "列出指定 Schema 下的所有表名，Schema 名称不区分大小写")
     public Map<String, Object> listTables(
-            @ToolParam(description = "Schema name (case-insensitive)") String schemaName) {
+            @ToolParam(description = "Schema 名称，不区分大小写") String schemaName) {
         if (schemaName == null || schemaName.isBlank()) {
             throw new IllegalArgumentException("schemaName must not be empty");
         }
@@ -52,10 +52,10 @@ public class Dm8Tools {
         }
     }
 
-    @Tool(description = "Get the DDL (CREATE TABLE statement) of a table in DM8. Both schemaName and tableName are case-insensitive.")
+    @Tool(name = "getTableDdl", description = "获取达梦数据库（DM8）中指定表的 DDL 建表语句，Schema 和表名不区分大小写")
     public Map<String, Object> getTableDdl(
-            @ToolParam(description = "Schema name (case-insensitive)") String schemaName,
-            @ToolParam(description = "Table name (case-insensitive)") String tableName) {
+            @ToolParam(description = "Schema 名称，不区分大小写") String schemaName,
+            @ToolParam(description = "表名，不区分大小写") String tableName) {
         if (schemaName == null || schemaName.isBlank()) {
             throw new IllegalArgumentException("schemaName must not be empty");
         }
@@ -76,11 +76,10 @@ public class Dm8Tools {
         }
     }
 
-    @Tool(description = "Get the column definitions of a table in DM8, including name, type, " +
-            "length, precision, scale, nullable, and comment. Both schemaName and tableName are case-insensitive.")
+    @Tool(name = "describeTable", description = "查询达梦数据库（DM8）指定表的列信息，包含列名、数据类型、长度、精度、小数位、是否可空、注释，Schema 和表名不区分大小写")
     public Map<String, Object> describeTable(
-            @ToolParam(description = "Schema name (case-insensitive)") String schemaName,
-            @ToolParam(description = "Table name (case-insensitive)") String tableName) {
+            @ToolParam(description = "Schema 名称，不区分大小写") String schemaName,
+            @ToolParam(description = "表名，不区分大小写") String tableName) {
         if (schemaName == null || schemaName.isBlank()) {
             throw new IllegalArgumentException("schemaName must not be empty");
         }
