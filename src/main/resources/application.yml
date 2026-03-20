@@ -1,0 +1,23 @@
+spring:
+  main:
+    web-application-type: none
+    banner-mode: off
+  ai:
+    mcp:
+      server:
+        name: dm8-mcp-server
+        version: 1.0.0
+        stdio: true
+  datasource:
+    url: ${DM8_URL}
+    username: ${DM8_USERNAME}
+    password: ${DM8_PASSWORD}
+    driver-class-name: dm.jdbc.driver.DmDriver
+    hikari:
+      maximum-pool-size: 1
+      connection-timeout: 5000
+      initialization-fail-timeout: 1
+
+logging:
+  pattern:
+    console:
